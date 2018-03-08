@@ -1,0 +1,22 @@
+Install two ubuntu servers, one for server and one for client (with option to clone this client server).
+Connection between servers will be implemented over UDP, Client sending gata to Server, by request from server.
+
+Server will contains following components:
+Mandatory Components:
+1. SQL server
+2. Script for Clients requesting
+3. Script for Database updating
+Optional Components:
+4. WEB presentation data from SQL server
+5. Backup DB
+6. Clean-up DB
+7. OpenVPN
+
+Client will perform following operations:
+1. Ask for registration (one-time), if already registered, Server will ignore this request
+2. Waiting for request from Server with relevant parameters
+3. Send data to Server upon request
+
+
+
+
