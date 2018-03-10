@@ -35,8 +35,7 @@ def write_log(line):
     :return: 
     
     '''
-#    if not os.path.exists(log_file):
-#        os.mknod(log_file)
+
     localtime = time.asctime(time.localtime(time.time()))
     try:
         with open(log_file, 'a+') as file:
@@ -58,7 +57,6 @@ def user_menu():
             print (entry, menu[entry])
 
         selection = input("Please Select:")
-        print(selection)
         if selection == '1':
             add_client_request()
         elif selection == '2':
