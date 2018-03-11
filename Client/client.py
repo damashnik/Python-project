@@ -1,6 +1,6 @@
 import os
 import time
-import configparser
+import ConfigParser
 import socket
 
 config_file = "client.cfg"
@@ -78,7 +78,7 @@ if __name__ == "__main__":
     '''
 
     try:
-        config = configparser.ConfigParser()
+        config = ConfigParser.ConfigParser()
         config.read(config_file)
         server_ip = config['Server']['server_address']
         port = config['Server']['port']
