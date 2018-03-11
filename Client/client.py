@@ -54,9 +54,9 @@ def user_menu():
     while True:
         options = menu.keys()
         for entry in options:
-            print (entry, menu[entry])
+            print entry, menu[entry]
 
-        selection = input("Please Select:")
+        selection = raw_input("Please Select:")
         if selection == '1':
             add_client_request()
         elif selection == '2':
@@ -80,14 +80,14 @@ if __name__ == "__main__":
     try:
         config = ConfigParser.ConfigParser()
         config.read(config_file)
-        server_ip = config['Server']['server_address']
-        port = config['Server']['port']
-        client_id = config['Client']['id']
-        log_file = config['Client']['log_file']
+        server_ip = config.get('Server', 'server_address')
+        port = config.get('Server','port')
+        client_id = config.get('Client','id')
+        log_file = config.get('Client','log_file')
         log_line = "Initiation: Client "+client_id+" working with Server "+server_ip+" and listening on port "+port+"\n"
         write_log(log_line)
         user_menu()
-    except configparser.Error as err:
+    except ConfigParser.Error as err:
         print("Error reading configuration", err)
         exit()
 
