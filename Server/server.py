@@ -1,6 +1,6 @@
 import os
 import time
-import configparser
+import ConfigParser
 import socket
 
 config_file = "server.cfg"
@@ -13,7 +13,7 @@ def delete_client_request():
 def add_client_request():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
         server.bind((server_ip, port))
-        server.listen(1)
+        server.listen(2)
         conn, addr = server.accept()
         with conn:
             print('Connected by', addr)
@@ -50,30 +50,6 @@ def write_log(line):
         print("Unable to open file", e)  # Does not exist OR no read permissions
 
 
-def user_menu():
-    menu = {}
-    menu['1'] = "Add Client."
-    menu['2'] = "Delete Client."
-    menu['3'] = "Run server."
-    menu['4'] = "Exit."
-    while True:
-        options = menu.keys()
-        for entry in options:
-            print(entry, menu[entry])
-
-        selection = input("Please Select:")
-        if selection == '1':
-            add_client_request()
-        elif selection == '2':
-            delete_client_request()
-        elif selection == '3':
-            listen_to_server()
-        elif selection == '4':
-            break
-        else:
-            print("Unknown Option Selected!")
-
-
 if __name__ == "__main__":
 
     '''
@@ -83,15 +59,15 @@ if __name__ == "__main__":
     '''
 
     try:
-        config = configparser.ConfigParser()
+        config = ConfigParser.ConfigParser()
         config.read(config_file)
-        server_ip = config['Server']['server_address']
-        port = config['Server']['port']
-        log_file = config['server']['log_file']
-        log_line = "Initiation: server " + server_id + " working with Server " + server_ip + " and listening on port " + port + "\n"
+        server_ip = config.get('Server','server_address')
+        port = config.get('Server','port')
+        log_file = config.get('Server','log_file')
+        log_line = "Initiation: server " + server_ip + " working with Server " + server_ip + " and listening on port " + port + "\n"
         write_log(log_line)
-        user_menu()
-    except configparser.Error as err:
+#        user_menu()
+    except ConfigParser.Error as err:
         print("Error reading configuration", err)
         exit()
 
