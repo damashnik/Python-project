@@ -7,19 +7,20 @@ config_file = "server.cfg"
 
 
 def listen_to_clients():
-    #with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
+
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.bind((server_ip, int(port)))
     server.listen(2)
     conn, addr = server.accept()
     print('Connected by', addr)
-    while True:
+    while 1:
         data = conn.recv(1024)
         if not data: break
         conn.sendall(data)
+        log_line = "Response from Server " + data + "\n"
+        write_log(log_line)
     conn.close()
-    log_line = "Response from Server" + data + "\n"
-    write_log(log_line)
+
 
 
 def write_log(line):
