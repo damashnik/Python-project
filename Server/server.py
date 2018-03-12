@@ -6,11 +6,7 @@ import socket
 config_file = "server.cfg"
 
 
-def delete_client_request():
-    pass
-
-
-def add_client_request():
+def listen_to_clients():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
         server.bind((server_ip, port))
         server.listen(2)
@@ -23,14 +19,6 @@ def add_client_request():
                 conn.sendall(data)
         log_line = "Response from Server" + data + "\n"
         write_log(log_line)
-
-
-def listen_to_server(server_name, port):
-    pass
-
-
-def read_status_file():
-    pass
 
 
 def write_log(line):
@@ -66,7 +54,7 @@ if __name__ == "__main__":
         log_file = config.get('Server','log_file')
         log_line = "Initiation: server " + server_ip + " working with Server " + server_ip + " and listening on port " + port + "\n"
         write_log(log_line)
-#        user_menu()
+        listen_to_clients()
     except ConfigParser.Error as err:
         print("Error reading configuration", err)
         exit()
