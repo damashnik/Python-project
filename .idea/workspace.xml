@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e0a65d20-c4f7-4fa3-8230-f50d4888b81b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Client/client.cfg" afterPath="$PROJECT_DIR$/Client/client.cfg" />
-      <change beforePath="$PROJECT_DIR$/Client/client.py" afterPath="$PROJECT_DIR$/Client/client.py" />
-      <change beforePath="$PROJECT_DIR$/Server/server.cfg" afterPath="$PROJECT_DIR$/Server/server.cfg" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,14 +13,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="client.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="client.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Client/client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="84" column="32" lean-forward="true" selection-start-line="84" selection-start-column="32" selection-end-line="84" selection-end-column="32" />
+            <state relative-caret-position="0">
+              <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
+              <folding>
+                <element signature="e#19#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Server/server.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="63" column="27" lean-forward="true" selection-start-line="63" selection-start-column="27" selection-end-line="63" selection-end-column="27" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.cfg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Server/server.cfg">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -50,9 +69,11 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>client</find>
+      <find>config[</find>
     </findStrings>
     <replaceStrings>
       <replace>server</replace>
+      <replace>config.get(</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -62,9 +83,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Client/client.cfg" />
-        <option value="$PROJECT_DIR$/Server/server.py" />
         <option value="$PROJECT_DIR$/Server/server.cfg" />
         <option value="$PROJECT_DIR$/Client/client.py" />
+        <option value="$PROJECT_DIR$/Server/server.py" />
       </list>
     </option>
   </component>
@@ -103,6 +124,11 @@
               <item name="Python-project" type="462c0819:PsiDirectoryNode" />
               <item name="Client" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Python-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Python-project" type="462c0819:PsiDirectoryNode" />
+              <item name="Server" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -125,7 +151,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.server">
     <configuration name="client" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -139,6 +165,24 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Python-project" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Client/client.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="server" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Server" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Python-project" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Server/server.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -207,9 +251,14 @@
       <option name="_new_target" value="&quot;.&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Python.client" />
+      <item index="1" class="java.lang.String" itemvalue="Python.server" />
+    </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.client" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Python.server" />
+        <item index="1" class="java.lang.String" itemvalue="Python.client" />
       </list>
     </recent_temporary>
   </component>
@@ -248,7 +297,28 @@
       <option name="project" value="LOCAL" />
       <updated>1520710493033</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added following logic:&#10;Log file creation&#10;User Menu&#10;Add new Client request">
+      <created>1520800294437</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1520800294437</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added following logic:&#10;Log file creation&#10;User Menu&#10;Add new Client request">
+      <created>1520832648541</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1520832648541</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Convert server to python 2.7">
+      <created>1520833527147</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1520833527147</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -260,7 +330,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32861805" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32861805" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -281,7 +351,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Create Client structure" />
     <MESSAGE value="Added following logic:&#10;Log file creation&#10;User Menu&#10;Add new Client request" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added following logic:&#10;Log file creation&#10;User Menu&#10;Add new Client request" />
+    <MESSAGE value="Convert server to python 2.7" />
+    <option name="LAST_COMMIT_MESSAGE" value="Convert server to python 2.7" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -293,7 +364,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#19#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -311,7 +382,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#19#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -337,7 +408,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="4" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#19#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -347,7 +418,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#19#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -365,7 +436,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#19#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -380,18 +451,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Client/client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="84" column="32" lean-forward="true" selection-start-line="84" selection-start-column="32" selection-end-line="84" selection-end-column="32" />
+        <state relative-caret-position="0">
+          <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#19#28#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -405,8 +469,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/server.cfg">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
+        <state relative-caret-position="147">
           <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="63" column="27" lean-forward="true" selection-start-line="63" selection-start-column="27" selection-end-line="63" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
