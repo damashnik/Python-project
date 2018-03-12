@@ -10,14 +10,14 @@ def listen_to_clients():
     #with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.bind((server_ip, int(port)))
-    server.listen(1)
+    server.listen(2)
     conn, addr = server.accept()
-    with conn:
-        print('Connected by', addr)
-        while True:
-            data = conn.recv(1024)
-            if not data: break
-            conn.sendall(data)
+    print('Connected by', addr)
+    while True:
+        data = conn.recv(1024)
+        if not data: break
+        conn.sendall(data)
+    conn.close()
     log_line = "Response from Server" + data + "\n"
     write_log(log_line)
 
