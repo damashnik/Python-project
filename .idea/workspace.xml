@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e0a65d20-c4f7-4fa3-8230-f50d4888b81b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Server/server.cfg" afterPath="$PROJECT_DIR$/Server/server.cfg" />
-      <change beforePath="$PROJECT_DIR$/Server/server.py" afterPath="$PROJECT_DIR$/Server/server.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -347,7 +345,14 @@
       <option name="project" value="LOCAL" />
       <updated>1520835191146</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="FIx server connection issues">
+      <created>1520878347135</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1520878347135</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -381,7 +386,8 @@
     <MESSAGE value="Added following logic:&#10;Log file creation&#10;User Menu&#10;Add new Client request" />
     <MESSAGE value="Convert server to python 2.7" />
     <MESSAGE value="FIx issues" />
-    <option name="LAST_COMMIT_MESSAGE" value="FIx issues" />
+    <MESSAGE value="FIx server connection issues" />
+    <option name="LAST_COMMIT_MESSAGE" value="FIx server connection issues" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
