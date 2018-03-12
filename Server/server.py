@@ -14,11 +14,14 @@ def listen_to_clients():
     conn, addr = server.accept()
     print('Connected by', addr)
     while 1:
-        data = conn.recv(1024)
-        if not data: break
-        conn.sendall(data)
-        log_line = "Response from Server " + data + "\n"
-        write_log(log_line)
+        try:
+            data = conn.recv(1024)
+            if not data: continue
+            conn.sendall(data)
+            log_line = "Response from Server " + data + "\n"
+            write_log(log_line)
+        except KeyboardInterrupt:
+            break
     #conn.close()
 
 def write_log(line):
