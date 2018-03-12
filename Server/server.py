@@ -8,8 +8,8 @@ config_file = "server.cfg"
 
 def listen_to_clients():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
-        server.bind((server_ip, port))
-        server.listen(2)
+        server.bind((server_ip, int(port)))
+        server.listen(1)
         conn, addr = server.accept()
         with conn:
             print('Connected by', addr)
