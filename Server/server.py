@@ -19,9 +19,7 @@ def listen_to_clients():
         conn.sendall(data)
         log_line = "Response from Server " + data + "\n"
         write_log(log_line)
-    conn.close()
-
-
+    #conn.close()
 
 def write_log(line):
     '''
