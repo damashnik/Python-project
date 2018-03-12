@@ -15,12 +15,14 @@ def delete_client_request():
 def add_client_request():
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client.connect((server_ip, int(port)))
-    client.send(client_id)
+    client.sendall(client_id)
     log_line = "Sending request to add client with ID:"+client_id+", to server "+server_ip+" on port "+port+"\n"
     write_log(log_line)
     data = client.recv(1024)
+    client.close()
     log_line = "Response from Server" + data + "\n"
     write_log(log_line)
+    print ("Recieved", repr(data))
 
 
 def listen_to_server(server_name,port):
