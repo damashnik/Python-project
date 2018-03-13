@@ -8,11 +8,11 @@ import sqlite3
 config_file = "server.cfg"
 local_datetime = datetime.datetime.now().strftime('%d/%m/%Y %H:%M')
 
-def add_to_db (table, *values):
+def add_to_db (table, values):
 
     try:
         db_conn = sqlite3.connect(database)
-        db_line = "insert into " + table + " values (" + ",".join(values) + ")"
+        db_line = "insert into " + table + " values (" + list[values] + ")"
         write_log(db_line)
         cursor = db_conn.cursor()
         cursor.execute(db_line)
