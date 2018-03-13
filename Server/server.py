@@ -1,10 +1,12 @@
 import os
 import time
+import datetime
 import ConfigParser
 import socket
+import sqlite3
 
 config_file = "server.cfg"
-
+local_datetime = datetime.datetime.now().strftime('%Y-%M-%d %H:%m')
 
 def listen_to_clients():
 
@@ -16,8 +18,10 @@ def listen_to_clients():
     while 1:
         try:
             data = conn.recv(1024)
+            print data
             if not data: continue
             conn.sendall(data)
+
             log_line = "Response from Server " + data + "\n"
             write_log(log_line)
         except KeyboardInterrupt:
@@ -32,10 +36,10 @@ def write_log(line):
 
     '''
 
-    localtime = time.asctime(time.localtime(time.time()))
+    #localtime = time.asctime(time.localtime(time.time()))
     try:
         with open(log_file, 'a+') as file:
-            file.write(localtime + ":" + line)
+            file.write(local_datetime + ":" + line)
 
     except IOError as e:
         print("Unable to open file", e)  # Does not exist OR no read permissions
