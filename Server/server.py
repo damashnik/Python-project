@@ -6,7 +6,7 @@ import socket
 import sqlite3
 
 config_file = "server.cfg"
-local_datetime = datetime.datetime.now().strftime('%YY-%MM-%dd %H:%m')
+local_datetime = datetime.datetime.now().strftime('%y-%m-%d %H:%M')
 
 def add_to_db (table, *values):
 
