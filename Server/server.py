@@ -6,10 +6,14 @@ import socket
 import sqlite3
 
 config_file = "server.cfg"
-local_datetime = datetime.datetime.now().strftime('%y-%m-%d %H:%M')
+local_datetime = datetime.datetime.now().strftime('%d/%m/%Y %H:%M')
 
 def add_to_db (table, *values):
-
+    print database_name
+    if os.path.isfile(database_name):
+        print "OK"
+    else:
+        print "Not OK"
     try:
         db_conn = sqlite3.connect(database_name)
         db_line = "insert into " + table + " values " + values
