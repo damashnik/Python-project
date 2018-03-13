@@ -14,7 +14,7 @@ def add_to_db (table, *values):
     #cursor = db_conn.cursor()
 
     db_line = "insert into "+table+" values "+ values
-    print db_line
+    write_log(db_line)
 
     #cursor.execute()
 
