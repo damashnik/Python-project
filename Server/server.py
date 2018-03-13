@@ -18,9 +18,9 @@ def listen_to_clients():
     while 1:
         try:
             data = conn.recv(1024)
-            print data
             if not data: continue
-            conn.sendall(data)
+            #conn.sendall(data)
+            print (addr, data)
 
             log_line = "Response from Server " + data + "\n"
             write_log(log_line)
