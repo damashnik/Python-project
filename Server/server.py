@@ -10,13 +10,15 @@ local_datetime = datetime.datetime.now().strftime('%Y-%M-%d %H:%m')
 
 def add_to_db (table, *values):
 
-    db_conn = sqlite3.connect(database_name)
-    #cursor = db_conn.cursor()
+    try:
+        db_conn = sqlite3.connect(database_name)
+        db_line = "insert into " + table + " values " + values
+        write_log(db_line)
+        cursor = db_conn.cursor()
+        cursor.execute(db_line)
 
-    db_line = "insert into "+table+" values "+ values
-    write_log(db_line)
-
-    #cursor.execute()
+    except Exception as e:
+        print "Error",e
 
 def listen_to_clients():
 
