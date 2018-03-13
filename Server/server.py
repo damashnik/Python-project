@@ -17,10 +17,8 @@ def add_to_db (table, values):
         try:
             cursor.execute(db_line)
             return_value = 1
-        except sqlite3.Error as e:
-            print ("Database error: %s" % e)
-#        except Exception as e:
-#            print "Error",e
+        except Exception as e:
+            print "Error",e
 
         db_conn.commit()
         db_conn.close()
