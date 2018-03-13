@@ -8,6 +8,16 @@ import sqlite3
 config_file = "server.cfg"
 local_datetime = datetime.datetime.now().strftime('%Y-%M-%d %H:%m')
 
+def add_to_db (table, *values):
+
+    db_conn = sqlite3.connect(database_name)
+    cursor = db_conn.cursor()
+
+    db_line = "insert into "+table+" values "+ values
+    print db_line
+
+    #cursor.execute()
+
 def listen_to_clients():
 
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -20,7 +30,8 @@ def listen_to_clients():
             data = conn.recv(1024)
             if not data: continue
             #conn.sendall(data)
-            print (addr[0], data)
+            values = (addr[0], data, 'KeyToBeCreated', 'ClientName', local_datetime)
+            add_to_db ('clients', values)
             log_line = "Response from Server " + data + "\n"
             write_log(log_line)
             continue
@@ -59,6 +70,7 @@ if __name__ == "__main__":
         server_ip = config.get('Server','server_address')
         port = config.get('Server','port')
         log_file = config.get('Server','log_file')
+        database_name = config.get('Server','db')
         log_line = "Initiation: server " + server_ip + " working with Server " + server_ip + " and listening on port " + port + "\n"
         write_log(log_line)
         listen_to_clients()
