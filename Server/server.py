@@ -1,5 +1,4 @@
 import os
-import time
 import datetime
 import ConfigParser
 import socket
@@ -15,9 +14,17 @@ def add_to_db (table, values):
         db_line = "insert into " + table + " values " + str(values)
         write_log(db_line)
         cursor = db_conn.cursor()
-        cursor.execute(db_line)
+        try:
+            cursor.execute(db_line)
+            return_value = 1
+        except sqlite3.Error as e:
+            print ("Database error: %s" % e)
+        except Exception as e:
+            print "Error",e
+
         db_conn.commit()
         db_conn.close()
+        return return_value
 
     except Exception as e:
         print "Error",e
@@ -33,11 +40,14 @@ def listen_to_clients():
         try:
             data = conn.recv(1024)
             if not data: continue
-            #conn.sendall(data)
+            conn.sendall(data)
             values = (addr[0], data, 'KeyToBeCreated', 'ClientName', local_datetime)
-            add_to_db ('clients', values)
-            log_line = "Response from Server " + data + "\n"
-            write_log(log_line)
+            if add_to_db ('clients', values):
+                conn.sendall("Client "+data+" has been added successfully")
+                log_line = "Client "+data+" has been added successfully\n"
+                write_log(log_line)
+            else:
+
             continue
         except KeyboardInterrupt:
             break
