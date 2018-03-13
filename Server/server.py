@@ -6,7 +6,7 @@ import socket
 import sqlite3
 
 config_file = "server.cfg"
-local_datetime = datetime.datetime.now().strftime('%Y-%M-%d %H:%m')
+local_datetime = datetime.datetime.now().strftime('%YY-%MM-%dd %H:%m')
 
 def add_to_db (table, *values):
 
@@ -16,6 +16,8 @@ def add_to_db (table, *values):
         write_log(db_line)
         cursor = db_conn.cursor()
         cursor.execute(db_line)
+        db_conn.commit()
+        db_conn.close()
 
     except Exception as e:
         print "Error",e
