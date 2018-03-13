@@ -9,15 +9,10 @@ config_file = "server.cfg"
 local_datetime = datetime.datetime.now().strftime('%d/%m/%Y %H:%M')
 
 def add_to_db (table, *values):
-    print database
-    print os.path.abspath(database)
-    if os.path.isfile(database):
-        print "OK"
-    else:
-        print "Not OK"
+
     try:
         db_conn = sqlite3.connect(database)
-        db_line = "insert into " + table + " values " + values
+        db_line = "insert into " + table + " values (" + ",".join(values) + ")"
         write_log(db_line)
         cursor = db_conn.cursor()
         cursor.execute(db_line)
