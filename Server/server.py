@@ -9,13 +9,14 @@ config_file = "server.cfg"
 local_datetime = datetime.datetime.now().strftime('%d/%m/%Y %H:%M')
 
 def add_to_db (table, *values):
-    print database_name
-    if os.path.isfile(database_name):
+    print database
+    print os.path.abspath(database)
+    if os.path.isfile(database):
         print "OK"
     else:
         print "Not OK"
     try:
-        db_conn = sqlite3.connect(database_name)
+        db_conn = sqlite3.connect(database)
         db_line = "insert into " + table + " values " + values
         write_log(db_line)
         cursor = db_conn.cursor()
@@ -78,7 +79,7 @@ if __name__ == "__main__":
         server_ip = config.get('Server','server_address')
         port = config.get('Server','port')
         log_file = config.get('Server','log_file')
-        database_name = config.get('Server','db')
+        database = config.get('Server','db')
         log_line = "Initiation: server " + server_ip + " working with Server " + server_ip + " and listening on port " + port + " database is "+database_name+"\n"
         write_log(log_line)
         listen_to_clients()
