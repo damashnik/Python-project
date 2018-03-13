@@ -23,7 +23,8 @@ def add_to_db (table, values):
         db_conn.commit()
         db_conn.close()
         return return_value
-
+    except sqlite3.Error as e:
+        print("Database error: %s" % e)
     except Exception as e:
         print "Error",e
 
@@ -45,7 +46,7 @@ def listen_to_clients():
                 log_line = "Client "+data+" has been added successfully\n"
                 write_log(log_line)
             else:
-
+                print "To be defined"
             continue
         except KeyboardInterrupt:
             break
