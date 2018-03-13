@@ -11,7 +11,7 @@ local_datetime = datetime.datetime.now().strftime('%Y-%M-%d %H:%m')
 def add_to_db (table, *values):
 
     db_conn = sqlite3.connect(database_name)
-    cursor = db_conn.cursor()
+    #cursor = db_conn.cursor()
 
     db_line = "insert into "+table+" values "+ values
     print db_line
@@ -71,7 +71,7 @@ if __name__ == "__main__":
         port = config.get('Server','port')
         log_file = config.get('Server','log_file')
         database_name = config.get('Server','db')
-        log_line = "Initiation: server " + server_ip + " working with Server " + server_ip + " and listening on port " + port + "\n"
+        log_line = "Initiation: server " + server_ip + " working with Server " + server_ip + " and listening on port " + port + " database is "+database_name+"\n"
         write_log(log_line)
         listen_to_clients()
     except ConfigParser.Error as err:
