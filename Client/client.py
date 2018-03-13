@@ -20,7 +20,7 @@ def add_client_request():
     write_log(log_line)
     data = client.recv(1024)
     client.close()
-    log_line = "Response from Server" + data + "\n"
+    log_line = "Response from Server " + data + "\n"
     write_log(log_line)
     print ("Recieved", repr(data))
 
