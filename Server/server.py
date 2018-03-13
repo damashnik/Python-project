@@ -80,7 +80,7 @@ if __name__ == "__main__":
         port = config.get('Server','port')
         log_file = config.get('Server','log_file')
         database = config.get('Server','db')
-        log_line = "Initiation: server " + server_ip + " working with Server " + server_ip + " and listening on port " + port + " database is "+database_name+"\n"
+        log_line = "Initiation: server " + server_ip + " working with Server " + server_ip + " and listening on port " + port + " database is "+database+"\n"
         write_log(log_line)
         listen_to_clients()
     except ConfigParser.Error as err:
