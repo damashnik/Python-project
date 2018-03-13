@@ -12,7 +12,7 @@ def add_to_db (table, values):
 
     try:
         db_conn = sqlite3.connect(database)
-        db_line = "insert into " + table + " values (" + str(values) + ")"
+        db_line = "insert into " + table + " values " + str(values)
         write_log(db_line)
         cursor = db_conn.cursor()
         cursor.execute(db_line)
