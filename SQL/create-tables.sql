@@ -1,5 +1,3 @@
-CREATE DATABASE IF NOT EXISTS `water.db`;
-USE `water.db`;
 -- clients table
 CREATE TABLE IF NOT EXISTS clients (
   `clientID` int(10)  PRIMARY KEY,
