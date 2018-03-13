@@ -20,10 +20,10 @@ def listen_to_clients():
             data = conn.recv(1024)
             if not data: continue
             #conn.sendall(data)
-            print (addr, data)
-
+            print (addr[0], data)
             log_line = "Response from Server " + data + "\n"
             write_log(log_line)
+            continue
         except KeyboardInterrupt:
             break
     #conn.close()
