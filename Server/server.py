@@ -39,8 +39,11 @@ def listen_to_clients():
         try:
             data = conn.recv(1024)
             if not data: continue
-            conn.sendall(data)
-            values = (addr[0], data, 'KeyToBeCreated', 'ClientName', local_datetime)
+            #conn.sendall(data)
+            client_id, client_key, client_name = data
+            #client_key = data[1]
+            #client_name = data[2]
+            values = (client_id, addr[0],client_key,client_name, local_datetime)
             if add_to_db ('clients', values):
                 conn.sendall("Client "+data+" has been added successfully")
                 log_line = "Client "+data+" has been added successfully\n"

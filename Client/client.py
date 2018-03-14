@@ -18,17 +18,23 @@ def generate_key():
     return key
 
 def add_client_request():
+
     key = generate_key()
-    client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    client.connect((server_ip, int(port)))
-    client.sendall(client_id,key)
-    log_line = "Sending request to add client with ID:"+client_id+", and key "+key+" to server "+server_ip+" on port "+port+"\n"
-    write_log(log_line)
-    data = client.recv(1024)
-    client.close()
-    log_line = "Response from Server " + data + "\n"
-    write_log(log_line)
-    print ("Recieved", repr(data))
+    parameters = (client_id,key,client_name)
+
+    try:
+        client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        client.connect((server_ip, int(port)))
+        client.sendall(parameters)
+        log_line = "Sending request to add client with ID:"+client_id+", and key "+key+" to server "+server_ip+" on port "+port+"\n"
+        write_log(log_line)
+        data = client.recv(1024)
+        client.close()
+        log_line = "Response from Server " + data + "\n"
+        write_log(log_line)
+        print ("Recieved", repr(data))
+    except Exception as e:
+        print "Can't establish connection to servers:", e
 
 
 def listen_to_server(server_name,port):
@@ -93,6 +99,7 @@ if __name__ == "__main__":
         server_ip = config.get('Server', 'server_address')
         port = config.get('Server','port')
         client_id = config.get('Client','id')
+        client_name = config.get('Client','name')
         log_file = config.get('Client','log_file')
         log_line = "Initiation: Client "+client_id+" working with Server "+server_ip+" and listening on port "+port+"\n"
         write_log(log_line)
