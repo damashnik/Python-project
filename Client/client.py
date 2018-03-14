@@ -20,7 +20,7 @@ def generate_key():
 def add_client_request():
 
     key = generate_key()
-    parameters = (client_id,key,client_name)
+    parameters = ",".join(client_id,key,client_name)
 
     try:
         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
