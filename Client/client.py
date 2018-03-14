@@ -11,12 +11,18 @@ config_file = "client.cfg"
 def delete_client_request():
     pass
 
+def generate_key():
+    key = os.urandom(24)
+    with open(config_file, "a") as cf:
+        cf.write("key = "+key)
+    return key
 
 def add_client_request():
+    key = generate_key()
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client.connect((server_ip, int(port)))
-    client.sendall(client_id)
-    log_line = "Sending request to add client with ID:"+client_id+", to server "+server_ip+" on port "+port+"\n"
+    client.sendall(client_id,key)
+    log_line = "Sending request to add client with ID:"+client_id+", and key "+key+" to server "+server_ip+" on port "+port+"\n"
     write_log(log_line)
     data = client.recv(1024)
     client.close()
