@@ -15,8 +15,8 @@ def generate_key():
     key = os.urandom(24).encode('base-64')
     key.replace('/','_').strip('_\ /t/n/r')
     print key
-    with open(config_file, "a") as cf:
-        cf.write("key = "+key)
+    config.set('Client', 'key', key)
+    write_log("Key "+key+" has been added to the client")
     return key
 
 def add_client_request():
@@ -65,26 +65,22 @@ def write_log(line):
 
 def user_menu():
     menu = {}
-    if client_key:
+    if client_key != '':
         menu['1'] = "Replace Client Key."
+        menu['2'] = "Delete Client."
     else:
         menu['1'] = "Add Client."
-    menu['2'] = "Delete Client."
-    menu['3'] = "Run Client."
-    menu['4'] = "Exit."
+    menu['Q'] = "Exit."
     while True:
         options = menu.keys()
         for entry in options:
             print entry, menu[entry]
-
         selection = raw_input("Please Select:")
         if selection == '1':
             add_client_request()
         elif selection == '2':
             delete_client_request()
-        elif selection == '3':
-            listen_to_server()
-        elif selection == '4':
+        elif selection == 'Q':
             break
         else:
             print ("Unknown Option Selected!")
@@ -105,7 +101,10 @@ if __name__ == "__main__":
         port = config.get('Server','port')
         client_id = config.get('Client','id')
         client_name = config.get('Client','name')
-        client_key = config.get('Client','key')
+        try:
+            client_key = config.get('Client','key')
+        except:
+            client_key = ''
         log_file = config.get('Client','log_file')
         log_line = "Initiation: Client "+client_id+" working with Server "+server_ip+" and listening on port "+port+"\n"
         write_log(log_line)
