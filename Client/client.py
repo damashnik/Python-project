@@ -13,7 +13,7 @@ def delete_client_request():
 
 def generate_key():
     key = os.urandom(24).encode('base-64')
-    key.replace('/','_')
+    key.replace('/','_').strip('_\ /t/n/r')
     print key
     with open(config_file, "a") as cf:
         cf.write("key = "+key)
