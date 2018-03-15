@@ -40,7 +40,7 @@ def listen_to_clients():
             data = conn.recv(1024)
             if not data: continue
             #conn.sendall(data)
-            data_tuple=tuple(data.split(",")[:-1])
+            data_tuple=tuple(data.split(","))
             client_id = data_tuple[0]
             client_key = data_tuple[1]
             client_name = data_tuple[2]
