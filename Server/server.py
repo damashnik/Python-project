@@ -40,9 +40,10 @@ def listen_to_clients():
             data = conn.recv(1024)
             if not data: continue
             #conn.sendall(data)
-            client_id = data[0]
-            client_key = data[1]
-            client_name = data[2]
+            data_tuple=tuple(data.split(",")[:-1])
+            client_id = data_tuple[0]
+            client_key = data_tuple[1]
+            client_name = data_tuple[2]
             values = (client_id, addr[0],client_key,client_name, local_datetime)
             if add_to_db ('clients', values):
                 conn.sendall("Client "+data+" has been added successfully")
