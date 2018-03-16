@@ -64,7 +64,9 @@ def listen_to_server(server_name,port):
 
 
 def read_status_file():
-    pass
+    with open(client_status_file, "r+") as sf:
+        return (",".join(sf.readlines()))
+
 
 def write_log(line):
     '''
@@ -105,6 +107,29 @@ def user_menu():
         else:
             print ("Unknown Option Selected!")
 
+def keep_alive():
+    try:
+        client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        client.bind(server_ip, int(client_keep_alive_port))
+        client.listen(1)
+        conn, addr = client.accept()
+        print('Status data requested by', addr)
+        while 1:
+            try:
+                data = client_id+","+read_status_file()
+                conn.sendall(data)
+                log_line = "status " + data + " has been sent to server\n"
+                write_log(log_line)
+                continue
+            except KeyboardInterrupt:
+                break
+    except Exception as e:
+        print "Keep alive listener problems:", e
+
+
+
+
+
 
 if __name__ == "__main__":
 
@@ -115,12 +140,19 @@ if __name__ == "__main__":
     '''
 
     try:
+
+        """
+        Parsing of client.cfg file contains configuration parameters related to Client 
+        """
+
         config = ConfigParser.ConfigParser()
         config.read(config_file)
         server_ip = config.get('Server', 'server_address')
         port = config.get('Server','port')
         client_id = config.get('Client','id')
         client_name = config.get('Client','name')
+        client_keep_alive_port = config.get('Client','keep_alive_port')
+        client_status_file = config.get('Client','status_file')
         try:
             client_key = config.get('Client','key')
         except:
@@ -128,7 +160,15 @@ if __name__ == "__main__":
         log_file = config.get('Client','log_file')
         log_line = "Initiation: Client "+client_id+" working with Server "+server_ip+" and listening on port "+port+"\n"
         write_log(log_line)
-        user_menu()
+        """
+        Create 2 parallel processes:
+        client_operation for treatment of Client's operations like add, replace or remove client
+        keepalive_listener for server's requests listening
+         
+        """
+        client_operation = multiprocessing.Process(target = user_menu, args=())
+        keepalive_listener = multiprocessing.Process(target=keep_alive, args=())
+
     except ConfigParser.Error as err:
         print("Error reading configuration", err)
         exit()
