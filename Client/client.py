@@ -4,14 +4,31 @@ import os
 import time
 import ConfigParser
 import socket
+import multiprocessing
 
+""" 
+Start variables definition
+"""
 config_file = "client.cfg"
 
-
+"""
+Stop variables definition
+"""
 def delete_client_request():
+    """
+    Function for delete existing client request
+    Client sending request contains ID and Key to server with parameter "d"
+    :return:
+    """
     pass
 
 def generate_key():
+    """
+    Key generation for further client identification in all operations with server
+    Key generated with urandom and encoded with Base-64
+    In order to remove blank spaces and special characters using strip
+    :return: key
+    """
     key = os.urandom(24).encode('base-64')
     key.replace('/','_').strip('_\ /t/n/r')
     print key
@@ -20,7 +37,10 @@ def generate_key():
     return key
 
 def add_client_request():
-
+    """
+    Function to add or modify information for client
+    :return:
+    """
     key = generate_key()
     parameters = ",".join([client_id,key,client_name])
 
