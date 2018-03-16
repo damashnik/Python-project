@@ -166,8 +166,14 @@ if __name__ == "__main__":
         keepalive_listener for server's requests listening
          
         """
-        client_operation = multiprocessing.Process(target = user_menu, args=())
+        client_operation = multiprocessing.Process(target=user_menu, args=())
         keepalive_listener = multiprocessing.Process(target=keep_alive, args=())
+
+        client_operation.start()
+        keepalive_listener.start()
+
+        client_operation.join()
+        keepalive_listener.join()
 
     except ConfigParser.Error as err:
         print("Error reading configuration", err)
