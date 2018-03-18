@@ -36,14 +36,16 @@ def generate_key():
     write_log("Key "+key+" has been added to the client")
     return key
 
-def add_client_request():
+def send_client_request(action):
     """
     Function to add or modify information for client
     :return:
     """
-    key = generate_key()
-    parameters = ",".join([client_id,key,client_name])
-
+    if action == "a":
+        key = generate_key()
+        parameters = ",".join(["a",client_id,key,client_name])
+    else:
+        parameters = ",".join(["d", client_id, key, client_name])
     try:
         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client.connect((server_ip, int(port)))
@@ -99,9 +101,9 @@ def user_menu():
             print entry, menu[entry]
         selection = raw_input("Please Select:")
         if selection == '1':
-            add_client_request()
+            send_client_request("a")
         elif selection == '2':
-            delete_client_request()
+            send_client_request("d")
         elif selection == 'Q':
             break
         else:
