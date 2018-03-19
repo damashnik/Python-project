@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e0a65d20-c4f7-4fa3-8230-f50d4888b81b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Python-project.iml" afterPath="$PROJECT_DIR$/.idea/Python-project.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Client/client_listen.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Server/server_deamon.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Client/client.py" afterPath="$PROJECT_DIR$/Client/client.py" />
+      <change beforePath="$PROJECT_DIR$/Client/client.py" afterPath="$PROJECT_DIR$/Client/client_actions.py" />
+      <change beforePath="$PROJECT_DIR$/Server/server.py" afterPath="$PROJECT_DIR$/Server/server.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="client.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Client/client.py">
+      <file leaf-file-name="client_actions.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Client/client_actions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="593">
-              <caret line="54" column="32" lean-forward="false" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
+            <state relative-caret-position="1386">
+              <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
               <folding>
                 <element signature="e#19#28#0" expanded="true" />
               </folding>
@@ -41,8 +42,44 @@
       <file leaf-file-name="server.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1071">
-              <caret line="55" column="17" lean-forward="false" selection-start-line="37" selection-start-column="4" selection-end-line="55" selection-end-column="17" />
+            <state relative-caret-position="816">
+              <caret line="127" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="client_listen.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Client/client_listen.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="504">
+              <caret line="42" column="39" lean-forward="true" selection-start-line="42" selection-start-column="15" selection-end-line="42" selection-end-column="39" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server_deamon.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Server/server_deamon.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="26" column="26" lean-forward="true" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create-tables.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SQL/create-tables.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -82,10 +119,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Server/server.py" />
         <option value="$PROJECT_DIR$/Server/server.cfg" />
         <option value="$PROJECT_DIR$/Client/client.cfg" />
         <option value="$PROJECT_DIR$/Client/client.py" />
+        <option value="$PROJECT_DIR$/Server/server.py" />
+        <option value="$PROJECT_DIR$/Client/client_actions.py" />
+        <option value="$PROJECT_DIR$/Client/client_listen.py" />
+        <option value="$PROJECT_DIR$/Server/server_deamon.py" />
       </list>
     </option>
   </component>
@@ -111,7 +151,32 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Python-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Python-project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Python-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Python-project" type="462c0819:PsiDirectoryNode" />
+              <item name="Client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Python-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Python-project" type="462c0819:PsiDirectoryNode" />
+              <item name="Server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Python-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Python-project" type="462c0819:PsiDirectoryNode" />
+              <item name="SQL" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scratches" />
     </panes>
   </component>
@@ -144,7 +209,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Python-project" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Client/client.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Lenovo\Documents\GitHub\Python-project\Client\client_actions.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -268,7 +333,14 @@
       <option name="project" value="LOCAL" />
       <updated>1521220398348</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added following logic:&#10;Added Server side">
+      <created>1521350735978</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1521350735978</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -313,7 +385,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Client/client.py</url>
+          <url>file://$PROJECT_DIR$/Client/client_actions.py</url>
           <line>2</line>
         </line-breakpoint>
       </breakpoints>
@@ -322,7 +394,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Client/client.py">
+    <entry file="file://$PROJECT_DIR$/Client/client_actions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -344,7 +416,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1155">
           <caret line="55" column="17" lean-forward="true" selection-start-line="37" selection-start-column="4" selection-end-line="55" selection-end-column="17" />
-          <folding />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -356,7 +430,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Client/client.py">
+    <entry file="file://$PROJECT_DIR$/Client/client_actions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1350">
           <caret line="93" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
@@ -370,7 +444,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-          <folding />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -389,7 +465,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Client/client.py">
+    <entry file="file://$PROJECT_DIR$/Client/client_actions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -407,7 +483,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Client/client.py">
+    <entry file="file://$PROJECT_DIR$/Client/client_actions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -440,14 +516,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="55" column="17" lean-forward="false" selection-start-line="37" selection-start-column="4" selection-end-line="55" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project-description.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="987">
@@ -456,12 +524,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Client/client.py">
+    <entry file="file://$PROJECT_DIR$/Client/client_actions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="593">
-          <caret line="54" column="32" lean-forward="false" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
+        <state relative-caret-position="1386">
+          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding>
             <element signature="e#19#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="127" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SQL/create-tables.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/client_listen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="42" column="39" lean-forward="true" selection-start-line="42" selection-start-column="15" selection-end-line="42" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/server_deamon.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="26" column="26" lean-forward="true" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>

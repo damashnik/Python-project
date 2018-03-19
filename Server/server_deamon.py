@@ -3,23 +3,34 @@ import datetime
 import ConfigParser
 import socket
 import sqlite3
-import multiprocessing
 
 config_file = "server.cfg"
 local_datetime = datetime.datetime.now().strftime('%d/%m/%Y %H:%M')
 
-def add_to_db (table, values):
-
+def read_from_db (table):
     try:
         db_conn = sqlite3.connect(database)
-        db_line = "insert or replace into " + table + " values " + str(values)
+        db_line = "select clientID, clientIP, clientKey from" + table
+        db_conn.commit()
+        db_conn.close()
+        print db_line
+        return db_line
+    except sqlite3.Error as e:
+        print("Database error: %s" % e)
+    except Exception as e:
+        print "Error",e
+
+def update_clients_status(table, values):
+    try:
+        db_conn = sqlite3.connect(database)
+        db_line = "insert " + table + " values " + str(values)
         write_log(db_line)
         cursor = db_conn.cursor()
         try:
             cursor.execute(db_line)
             return_value = 1
         except Exception as e:
-            print "Error",e
+            print "Error", e
 
         db_conn.commit()
         db_conn.close()
@@ -27,30 +38,11 @@ def add_to_db (table, values):
     except sqlite3.Error as e:
         print("Database error: %s" % e)
     except Exception as e:
-        print "Error",e
+        print "Error", e
 
-def del_from_db (table, values):
 
-    try:
-        db_conn = sqlite3.connect(database)
-        db_line = "delete from " + table + " where clientID="+values[0]
-        write_log(db_line)
-        cursor = db_conn.cursor()
-        try:
-            cursor.execute(db_line)
-            return_value = 1
-        except Exception as e:
-            print "Error",e
 
-        db_conn.commit()
-        db_conn.close()
-        return return_value
-    except sqlite3.Error as e:
-        print("Database error: %s" % e)
-    except Exception as e:
-        print "Error",e
-
-def listen_to_clients():
+def request_clients_status():
 
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.bind((server_ip, int(port)))
@@ -90,8 +82,8 @@ def listen_to_clients():
 def write_log(line):
     '''
     In this function we will care about all events in the system
-    :param log_file: 
-    :return: 
+    :param log_file:
+    :return:
 
     '''
 
@@ -120,7 +112,11 @@ if __name__ == "__main__":
         database = config.get('Server','db')
         log_line = "Initiation: server " + server_ip + " working with Server " + server_ip + " and listening on port " + port + " database is "+database+"\n"
         write_log(log_line)
-        listen_to_clients()
+        list_of_clients = read_from_db('clients')
+        for client in list_of_clients:
+            status = request_clients_status()
+            update_clients_status('reports', status)
+
     except ConfigParser.Error as err:
         print("Error reading configuration", err)
         exit()

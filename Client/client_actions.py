@@ -4,24 +4,16 @@ import os
 import time
 import ConfigParser
 import socket
-import multiprocessing
+
 
 """ 
 Start variables definition
 """
 config_file = "client.cfg"
-
+localtime = time.asctime(time.localtime(time.time()))
 """
 Stop variables definition
 """
-def delete_client_request():
-    """
-    Function for delete existing client request
-    Client sending request contains ID and Key to server with parameter "d"
-    :return:
-    """
-    pass
-
 def generate_key():
     """
     Key generation for further client identification in all operations with server
@@ -38,14 +30,14 @@ def generate_key():
 
 def send_client_request(action):
     """
-    Function to add or modify information for client
+    Function to add, modify or remove information for c lient
     :return:
     """
     if action == "a":
         key = generate_key()
         parameters = ",".join(["a",client_id,key,client_name])
     else:
-        parameters = ",".join(["d", client_id, key, client_name])
+        parameters = ",".join(["d", client_id, client_key, client_name])
     try:
         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client.connect((server_ip, int(port)))
@@ -61,10 +53,6 @@ def send_client_request(action):
         print "Can't establish connection to servers:", e
 
 
-def listen_to_server(server_name,port):
-    pass
-
-
 def read_status_file():
     with open(client_status_file, "r+") as sf:
         return (",".join(sf.readlines()))
@@ -75,10 +63,7 @@ def write_log(line):
     In this function we will care about all events in the system
     :param log_file: 
     :return: 
-    
     '''
-
-    localtime = time.asctime(time.localtime(time.time()))
     try:
         with open(log_file, 'a+') as file:
             file.write(localtime+":"+line)
@@ -108,29 +93,6 @@ def user_menu():
             break
         else:
             print ("Unknown Option Selected!")
-
-def keep_alive():
-    try:
-        client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        client.bind(server_ip, int(client_keep_alive_port))
-        client.listen(1)
-        conn, addr = client.accept()
-        print('Status data requested by', addr)
-        while 1:
-            try:
-                data = client_id+","+read_status_file()
-                conn.sendall(data)
-                log_line = "status " + data + " has been sent to server\n"
-                write_log(log_line)
-                continue
-            except KeyboardInterrupt:
-                break
-    except Exception as e:
-        print "Keep alive listener problems:", e
-
-
-
-
 
 
 if __name__ == "__main__":
@@ -162,21 +124,7 @@ if __name__ == "__main__":
         log_file = config.get('Client','log_file')
         log_line = "Initiation: Client "+client_id+" working with Server "+server_ip+" and listening on port "+port+"\n"
         write_log(log_line)
-        """
-        Create 2 parallel processes:
-        client_operation for treatment of Client's operations like add, replace or remove client
-        keepalive_listener for server's requests listening
-         
-        """
-        client_operation = multiprocessing.Process(target=user_menu, args=())
-        keepalive_listener = multiprocessing.Process(target=keep_alive, args=())
-
-        client_operation.start()
-        keepalive_listener.start()
-
-        client_operation.join()
-        keepalive_listener.join()
-
+        user_menu()
     except ConfigParser.Error as err:
         print("Error reading configuration", err)
         exit()
