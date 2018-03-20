@@ -4,6 +4,7 @@ import os
 import time
 import ConfigParser
 import socket
+import bottle
 
 
 """ 
@@ -71,17 +72,28 @@ def write_log(line):
     except IOError as e:
         print("Unable to open file", e)  # Does not exist OR no read permissions
 
+@route('/login')
+def do_login():
+    username = request.forms.get('username')
+    password = request.forms.get('password')
+    if check_login(username, password):
+        response.set_cookie("account", username, secret='some-secret-key')
+        return template("<p>Welcome {{name}}! You are now logged in.</p>", name=username)
+    else:
+        return "<p>Login failed.</p>"
 
 def user_menu():
     if client_key != '':
-        print ('    1. Replace Client Key /n \
-                    2. Delete Client /n \
-                    Q. Exit /n \
-               ')
+        print ("""1. Replace Client Key
+                  2. Delete Client
+                  Q. Exit
+                """
+               )
     else:
-        print ('    1. Add Client /n \
-                    Q. Exit /n \
-                ')
+        print ("""1. Add Client
+                  Q. Exit
+                """
+               )
     selection = raw_input("Please Select:")
     if selection == '1':
         send_client_request("a")
