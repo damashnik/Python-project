@@ -73,26 +73,24 @@ def write_log(line):
 
 
 def user_menu():
-    menu = {}
     if client_key != '':
-        menu['1'] = "Replace Client Key."
-        menu['2'] = "Delete Client."
+        print ('    1. Replace Client Key /n \
+                    2. Delete Client /n \
+                    Q. Exit /n \
+               ')
     else:
-        menu['1'] = "Add Client."
-    menu['Q'] = "Exit."
-    while True:
-        options = menu.keys()
-        for entry in options:
-            print entry, menu[entry]
-        selection = raw_input("Please Select:")
-        if selection == '1':
-            send_client_request("a")
-        elif selection == '2':
-            send_client_request("d")
-        elif selection == 'Q':
-            break
-        else:
-            print ("Unknown Option Selected!")
+        print ('    1. Add Client /n \
+                    Q. Exit /n \
+                ')
+    selection = raw_input("Please Select:")
+    if selection == '1':
+        send_client_request("a")
+    elif selection == '2':
+        send_client_request("d")
+    elif selection == 'Q':
+        exit()
+    else:
+        print ("Unknown Option Selected!")
 
 
 if __name__ == "__main__":
