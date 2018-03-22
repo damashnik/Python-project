@@ -132,7 +132,7 @@ if __name__ == "__main__":
             send_client_request("d")
         else:
             user_menu()
-        config_file.close()
+ #       config_file.close()
     except ConfigParser.Error as err:
         print("Error reading configuration", err)
         exit()
