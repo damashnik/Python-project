@@ -127,9 +127,9 @@ if __name__ == "__main__":
         log_line = "Initiation: Client "+client_id+" working with Server "+server_ip+" and listening on port "+port+"\n"
         write_log(log_line)
         print len(sys.argv)
-        if len(sys.argv > 1) & sys.argv[1]=="a":
+        if len(sys.argv) > 1 & sys.argv[1]=="a":
             send_client_request("a")
-        elif len(sys.argv > 1) & sys.argv[1] == "d":
+        elif len(sys.argv) > 1 & sys.argv[1] == "d":
             send_client_request("d")
         else:
             user_menu()
