@@ -1,11 +1,10 @@
 #!/usr/bin/python
 
 import os
+import sys
 import time
 import ConfigParser
 import socket
-from bottle import get, post, request, route
-
 
 """ 
 Start variables definition
@@ -26,12 +25,13 @@ def generate_key():
     key.replace('/','_').strip('_\ /t/n/r')
     print key
     config.set('Client', 'key', key)
+    config.write(config_file)
     write_log("Key "+key+" has been added to the client")
     return key
 
 def send_client_request(action):
     """
-    Function to add, modify or remove information for c lient
+    Function to add, modify or remove information for client
     :return:
     """
     if action == "a":
@@ -71,16 +71,6 @@ def write_log(line):
 
     except IOError as e:
         print("Unable to open file", e)  # Does not exist OR no read permissions
-
-@route('/login')
-def do_login():
-    username = request.forms.get('username')
-    password = request.forms.get('password')
-    if check_login(username, password):
-        response.set_cookie("account", username, secret='some-secret-key')
-        return template("<p>Welcome {{name}}! You are now logged in.</p>", name=username)
-    else:
-        return "<p>Login failed.</p>"
 
 def user_menu():
     if client_key != '':
@@ -136,7 +126,13 @@ if __name__ == "__main__":
         log_file = config.get('Client','log_file')
         log_line = "Initiation: Client "+client_id+" working with Server "+server_ip+" and listening on port "+port+"\n"
         write_log(log_line)
-        user_menu()
+        if sys.argv[1]=="a":
+            send_client_request("a")
+        elif sys.argv[1] == "d":
+            send_client_request("d")
+        else:
+            user_menu()
+        config_file.close()
     except ConfigParser.Error as err:
         print("Error reading configuration", err)
         exit()
