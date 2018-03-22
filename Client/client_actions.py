@@ -126,9 +126,9 @@ if __name__ == "__main__":
         log_file = config.get('Client','log_file')
         log_line = "Initiation: Client "+client_id+" working with Server "+server_ip+" and listening on port "+port+"\n"
         write_log(log_line)
-        if sys.argv[1]=="a":
+        if sys.argc & sys.argv[1]=="a":
             send_client_request("a")
-        elif sys.argv[1] == "d":
+        elif sys.argc & sys.argv[1] == "d":
             send_client_request("d")
         else:
             user_menu()
