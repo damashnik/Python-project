@@ -84,16 +84,18 @@ def do_login():
 
 def user_menu():
     if client_key != '':
-        print ("""1. Replace Client Key
-                  2. Delete Client
-                  Q. Exit
-                """
-               )
+        print ("""
+        1. Replace Client Key
+        2. Delete Client
+        Q. Exit
+        """
+        )
     else:
-        print ("""1. Add Client
-                  Q. Exit
-                """
-               )
+        print ("""
+        1. Add Client
+        Q. Exit
+        """
+        )
     selection = raw_input("Please Select:")
     if selection == '1':
         send_client_request("a")
