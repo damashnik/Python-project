@@ -10,7 +10,7 @@ local_datetime = datetime.datetime.now().strftime('%d/%m/%Y %H:%M')
 def read_from_db (table):
     try:
         db_conn = sqlite3.connect(database)
-        db_line = "select clientID, clientIP, clientKey from " + table
+        db_line = "select clientID, clientIP, clientKey from " + table +";"
         cursor = db_conn.cursor()
         try:
             result = cursor.execute(db_line)
