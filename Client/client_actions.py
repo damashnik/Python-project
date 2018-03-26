@@ -25,7 +25,8 @@ def generate_key():
     key.replace('/','_').strip('_\ /t/n/r')
     print key
     config.set('Client', 'key', key)
-    config.write(config_file)
+    with open(config_file, 'a') as configfile:
+        config.write(configfile)
     write_log("Key "+key+" has been added to the client")
     return key
 
@@ -112,7 +113,7 @@ if __name__ == "__main__":
         """
 
         config = ConfigParser.ConfigParser()
-        config.read(config_file)
+        config.read(open(config_file))
         server_ip = config.get('Server', 'server_address')
         port = config.get('Server','port')
         client_id = config.get('Client','id')
