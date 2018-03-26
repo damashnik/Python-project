@@ -39,7 +39,7 @@ def keep_alive():
     try:
         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client.bind(server_ip, int(client_keep_alive_port))
-        client.listen(1)
+        client.listen(2)
         conn, addr = client.accept()
         print('Status data requested by', addr)
         while 1:
