@@ -113,7 +113,7 @@ if __name__ == "__main__":
         """
 
         config = ConfigParser.ConfigParser()
-        config.read(open(config_file))
+        config.read(config_file)
         server_ip = config.get('Server', 'server_address')
         port = config.get('Server','port')
         client_id = config.get('Client','id')
