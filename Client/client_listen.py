@@ -2,6 +2,7 @@ import os
 import time
 import ConfigParser
 import socket
+import hashlib
 
 """ 
 Start variables definition
@@ -83,7 +84,7 @@ if __name__ == "__main__":
             log_line = "Client is not registered yet"
             write_log(log_line)
             exit()
-        log_line = "Initiation: Client " + client_id + " working with Server " + server_ip + " and listening on port " + port + "\n"
+        log_line = "Initiation: Client " + client_id + " working with Server " + server_ip + " and listening on port " + client_keep_alive_port + "\n"
         write_log(log_line)
         keep_alive()
     except ConfigParser.Error as err:
