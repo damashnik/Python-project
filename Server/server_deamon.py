@@ -13,6 +13,7 @@ def read_from_db (table):
         db_line = "select clientID, clientIP, clientKey from " + table +";"
         cursor = db_conn.cursor()
         try:
+            print "Enter function"
             result = cursor.execute(db_line)
             print result
             #return cursor.execute(db_line)
