@@ -118,8 +118,8 @@ if __name__ == "__main__":
         list_of_clients = read_from_db('clients')
         for client in list_of_clients:
             print client
-            status = request_clients_status()
-            update_clients_status('reports', status)
+#            status = request_clients_status()
+#            update_clients_status('reports', status)
 
     except ConfigParser.Error as err:
         print("Error reading configuration", err)
