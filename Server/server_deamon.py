@@ -15,7 +15,7 @@ def read_from_db (table):
         try:
             print "Enter function"
             cursor.execute(db_line)
-            result = cursor.fetchone()
+            result = cursor.fetchall()
             print result
             return result
         except Exception as e:
