@@ -14,9 +14,10 @@ def read_from_db (table):
         cursor = db_conn.cursor()
         try:
             print "Enter function"
-            result = cursor.execute(db_line)
+            cursor.execute(db_line)
+            result = cursor.fetchone()
             print result
-            #return cursor.execute(db_line)
+            return result
         except Exception as e:
             print "Error", e
         db_conn.close()
