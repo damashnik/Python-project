@@ -13,16 +13,11 @@ def read_from_db (table):
         db_line = "select clientID, clientIP, clientKey from " + table +";"
         cursor = db_conn.cursor()
         try:
-            print "Enter function"
             cursor.execute(db_line)
-            result = cursor.fetchall()
-            print result
-            return result
+            return cursor.fetchall()
         except Exception as e:
             print "Error", e
         db_conn.close()
-        print db_line
-        return db_line
     except sqlite3.Error as e:
         print("Database error: %s" % e)
     except Exception as e:
@@ -122,6 +117,7 @@ if __name__ == "__main__":
         write_log(log_line)
         list_of_clients = read_from_db('clients')
         for client in list_of_clients:
+            print client
             status = request_clients_status()
             update_clients_status('reports', status)
 
