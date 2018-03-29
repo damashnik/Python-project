@@ -45,11 +45,39 @@ def update_clients_status(table, values):
 
 
 
-def request_clients_status():
+def request_clients_status(connect):
+    def send_client_request(action):
+        """
+        Function to add, modify or remove information for client
+        :return:
+        """
+        if action == "a":
+            key = generate_key()
+            parameters = ",".join(["a", client_id, key, client_name])
+        else:
+            parameters = ",".join(["d", client_id, client_key, client_name])
+        try:
+            client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            client.connect((server_ip, int(port)))
+            client.sendall(parameters)
+            log_line = "Sending request to add client with ID:" + client_id + ", and key " + key + " to server " + server_ip + " on port " + port + "\n"
+            write_log(log_line)
+            data = client.recv(1024)
+            client.close()
+            log_line = "Response from Server " + data + "\n"
+            write_log(log_line)
+            print ("Recieved", repr(data))
+        except Exception as e:
+            print "Can't establish connection to servers:", e
 
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server.bind((server_ip, int(port)))
-    server.listen(2)
+    server.connect(connect[1], int(port))
+    server.sendall(connect)
+    log_line = "Sending request to client"+connect[0]+"with IP"+connect[1]
+    write_log(log_line)
+    data = server.recv(1024)
+    server.close()
+    log_line = "Response from Client is:" + data
     conn, addr = server.accept()
     print('Connected by', addr)
     while 1:
@@ -92,7 +120,7 @@ def write_log(line):
 
     try:
         with open(log_file, 'a+') as file:
-            file.write(local_datetime + ":" + line)
+            file.writelines(local_datetime + ":" + line)
 
     except IOError as e:
         print("Unable to open file", e)  # Does not exist OR no read permissions
@@ -118,8 +146,8 @@ if __name__ == "__main__":
         list_of_clients = read_from_db('clients')
         for client in list_of_clients:
             print client
-#            status = request_clients_status()
-#            update_clients_status('reports', status)
+            status = request_clients_status(client)
+            update_clients_status('reports', status)
 
     except ConfigParser.Error as err:
         print("Error reading configuration", err)
